@@ -84,8 +84,8 @@ It can be used as a base for CRUD APIs or more complex data access scenarios.
       "isActive": true
     }
   ],
-  "hataDurumu": false,
-  "hataMesajlar": null
+  "hasError": false,
+  "messages": null
 }
 ```
 
