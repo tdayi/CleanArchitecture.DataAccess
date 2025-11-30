@@ -45,15 +45,20 @@ It can be used as a base for CRUD APIs or more complex data access scenarios.
 
 ```json
 {
-  "skipCount": 0,
-  "takeCount": 10,
+  "skip": 0,
+  "take": 10,
   "orderByType": 1,
   "orderColumn": "Id",
-  "queryParameters": [
+  "parameters": [
     {
       "queryOperator": 6,
       "propertyName": "Name",
-      "value": "h"
+      "value": "e"
+    },
+    {
+      "queryOperator": 2,
+      "propertyName": "CreatedAt",
+      "value": "2025-11-30"
     }
   ]
 }
@@ -65,23 +70,47 @@ It can be used as a base for CRUD APIs or more complex data access scenarios.
 
 ```json
 {
-  "totalCount": 2,
+  "totalCount": 5,
   "result": [
     {
-      "id": "96c945c8-bd07-4757-bad0-06434f9bb9b4",
-      "name": "Mehmet",
-      "age": 32,
-      "status": 0,
-      "createdAt": "2025-11-25T12:36:29.807515",
+      "id": "0cf5972e-0cfa-4519-8c58-45b13be7e7ba",
+      "name": "Ayşe",
+      "age": 21,
+      "status": 1,
+      "createdAt": "2025-11-30T17:54:53.789286",
       "isActive": false
     },
     {
-      "id": "9ed07a67-9a93-4087-895e-5c9107a3fcb7",
+      "id": "46b86195-ae74-4884-857a-fc1fdd603706",
+      "name": "Veli",
+      "age": 34,
+      "status": 1,
+      "createdAt": "2025-11-30T17:54:53.789286",
+      "isActive": false
+    },
+    {
+      "id": "5c5cbae5-ef27-4eb9-9357-9a1c838bc5b4",
+      "name": "Selin",
+      "age": 20,
+      "status": 1,
+      "createdAt": "2025-11-30T17:54:53.789287",
+      "isActive": false
+    },
+    {
+      "id": "6e63d725-6e78-4e25-85b4-dde465f5b6c9",
       "name": "Ahmet",
       "age": 25,
       "status": 1,
-      "createdAt": "2025-11-20T12:36:29.807472",
-      "isActive": true
+      "createdAt": "2025-11-30T17:54:53.78484",
+      "isActive": false
+    },
+    {
+      "id": "b2b40fbb-1d23-42d7-9d47-58c580616c49",
+      "name": "Mehmet",
+      "age": 20,
+      "status": 1,
+      "createdAt": "2025-11-30T17:54:53.789285",
+      "isActive": false
     }
   ],
   "hasError": false,
