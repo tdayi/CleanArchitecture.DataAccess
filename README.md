@@ -8,12 +8,12 @@ This project demonstrates a clean architecture setup using **EF Core**, **SQLite
 
 The goal of this project is to provide a ready-to-use backend template that supports:
 
-- Repository and UnitOfWork design pattern
-- Dynamic IQueryable filtering
-- Pagination and sorting
-- AutoMapper integration
-- MediatR for request/response handling
-- SQLite database with seed data
+* Repository and UnitOfWork design pattern
+* Dynamic IQueryable filtering
+* Pagination and sorting
+* AutoMapper integration
+* MediatR for request/response handling
+* SQLite database with seed data
 
 It can be used as a base for CRUD APIs or more complex data access scenarios.
 
@@ -22,19 +22,28 @@ It can be used as a base for CRUD APIs or more complex data access scenarios.
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/tdayi/CleanArchitecture.DataAccess.git
    cd CleanArchitecture.DataAccess
+   ```
 
+2. Build and run the project:
 
-dotnet build
-dotnet run --project WebApi
+   ```bash
+   dotnet build
+   dotnet run --project WebApi
+   ```
 
-The API will start at http://localhost:5218
+   The API will start at [http://localhost:5218](http://localhost:5218)
 
-Example Request
-POST /api/User
+---
 
+## Example Request
+
+**POST** `/api/User`
+
+```json
 {
   "skipCount": 0,
   "takeCount": 10,
@@ -48,8 +57,13 @@ POST /api/User
     }
   ]
 }
+```
 
-Example Response
+---
+
+## Example Response
+
+```json
 {
   "totalCount": 2,
   "result": [
@@ -73,6 +87,11 @@ Example Response
   "hataDurumu": false,
   "hataMesajlar": null
 }
+```
+
+---
+
+## Supported Query Operators
 
 | Operator Name      | Value | Description                           |
 | ------------------ | ----- | ------------------------------------- |
