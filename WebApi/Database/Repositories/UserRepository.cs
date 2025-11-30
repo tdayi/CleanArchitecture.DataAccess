@@ -6,9 +6,9 @@ using WebApi.Database.Entity;
 
 namespace WebApi.Database.Repositories;
 
-public class UserRepository : Repository<User>, IUserRepository
+public class UserRepository : Repository<UserEntity>, IUserRepository
 {
-    public async Task<PagingResponse<User>> GetUsersAsync(IUnitOfWork unitOfWork, PagingRequest pagingRequest,
+    public async Task<PagingResponse<UserEntity>> GetUsersAsync(IUnitOfWork unitOfWork, PagingRequest pagingRequest,
         CancellationToken cancellationToken = default)
     {
         var context = unitOfWork.Context as AppDbContext;

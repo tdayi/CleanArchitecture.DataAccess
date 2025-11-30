@@ -1,7 +1,7 @@
 using Core.Contract;
 using WebApi.Constants;
 
-namespace WebApi.Contracts.User;
+namespace WebApi.Handlers.User.Queries.GetUsers;
 
 public class GetUsersResponse : ResponsePaginationBase
 {

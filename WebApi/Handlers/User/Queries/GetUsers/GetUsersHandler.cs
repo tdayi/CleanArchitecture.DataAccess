@@ -2,10 +2,9 @@ using AutoMapper;
 using Core.Repository;
 using Core.UnitOfWork;
 using MediatR;
-using WebApi.Contracts.User;
 using WebApi.Database.Repositories;
 
-namespace WebApi.Handlers.User;
+namespace WebApi.Handlers.User.Queries.GetUsers;
 
 public class GetUsersHandler : IRequestHandler<GetUsersRequest, GetUsersResponse>
 {

@@ -1,11 +1,13 @@
+using FluentValidation;
 using Serilog;
-using WebApi.Contracts;
 using WebApi.Database;
 using WebApi.Database.DbContext;
 using WebApi.Database.Seeder;
-using WebApi.Handlers.User;
 using WebApi.Middleware;
 using Microsoft.OpenApi.Models;
+using WebApi.Handlers.User.Commands.Create;
+using WebApi.Handlers.User.Profiles;
+using WebApi.Handlers.User.Queries.GetUsers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,8 +37,9 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblies(typeof(GetUsersHandler).Assembly));
+builder.Services.AddValidatorsFromAssemblyContaining<CreateRequestValidator>(ServiceLifetime.Scoped);
 
-builder.Services.AddAutoMapper(cfg => { }, typeof(ContractMapper).Assembly);
+builder.Services.AddAutoMapper(cfg => { }, typeof(UserMapper).Assembly);
 
 var app = builder.Build();
 

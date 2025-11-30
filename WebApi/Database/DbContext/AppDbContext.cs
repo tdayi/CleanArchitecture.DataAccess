@@ -11,17 +11,17 @@ public class AppDbContext : Microsoft.EntityFrameworkCore.DbContext
     {
     }
 
-    public DbSet<User> Users => Set<User>();
+    public DbSet<UserEntity> Users => Set<UserEntity>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<User>(entity =>
+        modelBuilder.Entity<UserEntity>(entity =>
         {
             entity.HasKey(x => x.Id);
             entity.Property(x => x.Name).HasMaxLength(50).IsRequired();
             entity.Property(x => x.Age);
             entity.Property(x => x.CreatedAt);
-            entity.Property(x => x.IsActive);
+            entity.Property(x => x.UpdatedAt);
             entity.Property(x => x.Status)
                 .HasConversion(
                     v => v.ToString(),

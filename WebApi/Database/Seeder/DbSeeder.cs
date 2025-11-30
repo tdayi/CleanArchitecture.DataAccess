@@ -13,44 +13,15 @@ public static class DbSeeder
             return;
         }
 
-        var users = new List<User>
+        var users = new List<UserEntity>
         {
-            new()
-            {
-                Id = Guid.NewGuid(),
-                Name = "Ahmet",
-                Age = 25,
-                Status = UserStatus.Active,
-                CreatedAt = DateTime.UtcNow.AddDays(-10),
-                IsActive = true
-            },
-            new()
-            {
-                Id = Guid.NewGuid(),
-                Name = "Mehmet",
-                Age = 32,
-                Status = UserStatus.Passive,
-                CreatedAt = DateTime.UtcNow.AddDays(-5),
-                IsActive = false
-            },
-            new()
-            {
-                Id = Guid.NewGuid(),
-                Name = "Ayşe",
-                Age = 28,
-                Status = UserStatus.Active,
-                CreatedAt = DateTime.UtcNow.AddDays(-2),
-                IsActive = true
-            },
-            new()
-            {
-                Id = Guid.NewGuid(),
-                Name = "Fatma",
-                Age = 40,
-                Status = UserStatus.Passive,
-                CreatedAt = DateTime.UtcNow.AddDays(-20),
-                IsActive = false
-            }
+            new UserEntity("Ahmet", 25, UserStatus.Active),
+            new UserEntity("Mehmet", 20, UserStatus.Active),
+            new UserEntity("Ayşe", 21, UserStatus.Active),
+            new UserEntity("Fatma", 23, UserStatus.Active),
+            new UserEntity("Veli", 34, UserStatus.Active),
+            new UserEntity("Ekin", 21, UserStatus.Active),
+            new UserEntity("Selin", 20, UserStatus.Active)
         };
 
         context.Users.AddRange(users);

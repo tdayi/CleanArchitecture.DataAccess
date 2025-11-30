@@ -4,8 +4,8 @@ using WebApi.Database.Entity;
 
 namespace WebApi.Database.Repositories;
 
-public interface IUserRepository : IRepository<User>
+public interface IUserRepository : IRepository<UserEntity>
 {
-    Task<PagingResponse<User>> GetUsersAsync(IUnitOfWork unitOfWork, PagingRequest pagingRequest,
+    Task<PagingResponse<UserEntity>> GetUsersAsync(IUnitOfWork unitOfWork, PagingRequest pagingRequest,
         CancellationToken cancellationToken = default);
 }
