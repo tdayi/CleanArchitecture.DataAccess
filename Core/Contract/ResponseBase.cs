@@ -2,7 +2,6 @@
 
 public class ResponseBase
 {
-    public bool HataDurumu { get; set; }
-
-    public string[] HataMesajlar { get; set; }
+    public bool HasError { get; set; }
+    public string[] Messages { get; set; }
 }
