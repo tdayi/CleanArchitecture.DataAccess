@@ -94,22 +94,22 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 
             Expression<Func<TEntity, bool>>? predicate = null;
 
-            if ((request.QueryParameters.Count > 0))
+            if ((request.Parameters.Count > 0))
             {
-                predicate = request.QueryParameters.ToFilterExpression<TEntity>();
+                predicate = request.Parameters.ToFilterExpression<TEntity>();
             }
 
             request.OrderByType ??= OrderByType.Asc;
-            request.SkipCount ??= 0;
+            request.Skip ??= 0;
 
             var source = (predicate != null)
                 ? dbContext.Set<TEntity>().Where<TEntity>(predicate).AsQueryable<TEntity>()
                 : dbContext.Set<TEntity>().AsQueryable<TEntity>();
 
             response.TotalCount = source.Count<TEntity>();
-            request.TakeCount ??= response.TotalCount;
+            request.Take ??= response.TotalCount;
             response.Result = source.ApplyOrdering<TEntity>(request.OrderColumn, request.OrderByType.Value)
-                .Skip<TEntity>(request.SkipCount.Value).Take<TEntity>(request.TakeCount.Value);
+                .Skip<TEntity>(request.Skip.Value).Take<TEntity>(request.Take.Value);
 
             return response;
         }, cancellationToken);
@@ -125,22 +125,22 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 
             Expression<Func<TQueryModel, bool>>? predicate = null;
 
-            if ((request.QueryParameters.Count > 0))
+            if ((request.Parameters.Count > 0))
             {
-                predicate = request.QueryParameters.ToFilterExpression<TQueryModel>();
+                predicate = request.Parameters.ToFilterExpression<TQueryModel>();
             }
 
             request.OrderByType ??= OrderByType.Asc;
-            request.SkipCount ??= 0;
+            request.Skip ??= 0;
 
             var source = (predicate != null)
                 ? query.Where<TQueryModel>(predicate).AsQueryable<TQueryModel>()
                 : query.AsQueryable<TQueryModel>();
 
             response.TotalCount = source.Count<TQueryModel>();
-            request.TakeCount ??= response.TotalCount;
+            request.Take ??= response.TotalCount;
             response.Result = source.ApplyOrdering<TQueryModel>(request.OrderColumn, request.OrderByType.Value)
-                .Skip<TQueryModel>(request.SkipCount.Value).Take<TQueryModel>(request.TakeCount.Value)
+                .Skip<TQueryModel>(request.Skip.Value).Take<TQueryModel>(request.Take.Value)
                 .AsEnumerable<TQueryModel>();
 
             return response;
