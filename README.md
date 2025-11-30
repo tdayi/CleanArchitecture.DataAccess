@@ -41,7 +41,7 @@ It can be used as a base for CRUD APIs or more complex data access scenarios.
 
 ## Example Request
 
-**POST** `/api/User`
+**POST** `/api/user/list`
 
 ```json
 {
